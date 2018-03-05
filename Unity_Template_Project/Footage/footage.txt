@@ -1,0 +1,10 @@
+Put all footage in this folder. This will automatically be blocked to be pushed to Github.
+
+This is a subfolder, keep this in mind when using videos in Unity. Refer to this folder to use videos in the code.
+
+Keep a clean structure in this folder. For example;
+- experiements
+- editing
+- sounds
+- final footage
+- ...

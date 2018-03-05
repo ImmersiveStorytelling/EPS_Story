@@ -4,8 +4,6 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
-!/Footage/footage.txt
-/Footage
 
 # Visual Studio 2015 cache directory
 /.vs/
