@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 727c9c71360f69a48bb6db9b5b910139
+  productGUID: b966772779e83a94ca64e0ffa2570a7f
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: StarterProject
+  productName: Unity_Template_Project
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -557,14 +557,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: StarterProject
+  metroPackageName: Unity_Template_Project
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: StarterProject
+  metroApplicationDescription: Unity_Template_Project
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -633,8 +633,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: ea3ed02a-1e98-400c-a21f-233435ddb25d
-  projectName: StarterProject
+  cloudProjectId: 77550d3f-bcd6-4f87-8e2e-d2cd407a925a
+  projectName: Unity_Template_Project
   organizationId: skiserony
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

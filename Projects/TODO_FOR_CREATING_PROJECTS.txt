@@ -1,0 +1,18 @@
+When making a new project, we only push necessary files to Github and not those that do not have an effect on the development of the project. This means we'll have to create those files before we start working remotely on a project.
+
+We have a template from which we will ALWAYS create a new project. This template will be the source of new updates and important changes.
+
+Here is how to do it:
+
+1. In the repo, there is a folder named "Unity_Template_Project". Copy this folder.
+2. Go in the folder "Projects"
+3. Paste the copied folder (keep a clean structure)
+4. Change name of the folder to the desired name
+5. Open the folder in Unity (other needed files will be automatically generated)
+
+
+In case of pushing something unwanted to github, do next steps:
+1. Delete the file/folder from you device
+2. "git add ."
+3. "git commit -a -m "delete X"
+4. push to github
