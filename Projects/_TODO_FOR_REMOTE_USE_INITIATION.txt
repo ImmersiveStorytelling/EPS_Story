@@ -1,0 +1,9 @@
+When the project is already created on another device, we will only have access to the development files. This means this is not a full Unity project.
+
+To be able to work on the project in Unity, to the following steps:
+1. Go to the folder in the upper map which is called "Unity_Template_Project" and enter it.
+2. Copy all files in this folder (CTRL + A, then CTRL + V => command for Apple)
+3. Go to the project on which to work and open it
+4. Paste all the files you copied (CTRL + V)
+5. !!! The computer will prompt to ask to overwrite or skip already existing files. Make sure that you SKIP THE ALREADY EXISTING FILES. Do not overwrite them.
+6. Open the project in Unity and the rest will be automatically generated.
