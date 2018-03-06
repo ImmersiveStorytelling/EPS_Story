@@ -1,0 +1,14 @@
+When making new project, we only push necessary files to Github and not those that do not have an effect on changes. This means we'll have to create those files first before we start working remotely on a project.
+
+Here is how to do it:
+
+1. Create project (if possible) on VR Computer (latest version 
+2. !!!Copy the gitignore file in the map above in the folder of the project
+3. git add, commit and push to github (pull before you push)
+4. on remote device you now have access towards the files on github but not a complete Unity project. Pull from github on your device so you have the files on your device
+5. open Unity (same version as where the project is created, in this case 2017.3) 
+6. create a new Unity 3D project next to the map where the new files are located
+7. when building finished, open the new created project project (from your device), press ctrl + A and copy everything
+8. go to the folder with the incomplete created project map and copy everything. !!!The device will prompt to ask wether you you to overwrite already existing files or skip them. Make sure you SKIP THE ALREADY EXISTING FILES. Do not overwrite.
+9. delete the project you created for generating the files.
+10. now you can work on the project remotely
