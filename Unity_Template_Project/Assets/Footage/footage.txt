@@ -1,6 +1,4 @@
-Put all footage in this folder. This will automatically be blocked to be pushed to Github.
-
-This is a subfolder, keep this in mind when using videos in Unity. Refer to this folder to use videos in the code.
+Put all footage in this folder. This will automatically be blocked to be pushed to Github
 
 Keep a clean structure in this folder. For example;
 - experiments
@@ -9,10 +7,14 @@ Keep a clean structure in this folder. For example;
 - final footage
 - ...
 
+.
+
+When using subfolders, refer to this folder to use videos in the code. (Look at starter
+
 Example code:
 
 private void startVideo(int num)
 {
-    vPlayer.url = "Assets/Footage/" + num.ToString() + ".MP4";
+    vPlayer.url = "Assets/Footage/Experiments/" + num.ToString() + ".MP4";
     vPlayer.Play();
 }
