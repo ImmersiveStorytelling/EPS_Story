@@ -6,4 +6,7 @@ To be able to work on the project in Unity, to the following steps:
 3. Go to the project on which to work and open it
 4. Paste all the files you copied (CTRL + V)
 5. !!! The computer will prompt to ask to overwrite or skip already existing files. Make sure that you SKIP THE ALREADY EXISTING FILES. Do not overwrite them.
-6. Open the project in Unity and the rest will be automatically generated.
+6. Add two next folders in de Asset folder (store these two folders locally so you don't have to download it everytime):
+	- SteamVR: https://github.com/ValveSoftware/steamvr_unity_plugin => enter "Assets" and the folder SteamVR is the one you need to copy to your own "Assets" folder
+	- VRTK: https://github.com/thestonefox/VRTK.git  => same as above, but with VRTK folder
+7. Open the project in Unity and the rest will be automatically generated.
