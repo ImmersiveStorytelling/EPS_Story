@@ -8,7 +8,10 @@ Here is how to do it:
 2. Go in the folder "Projects"
 3. Paste the copied folder (keep a clean structure)
 4. Change name of the folder to the desired name
-5. Open the folder in Unity (other needed files will be automatically generated)
+5. Add two next folders in de Asset folder* (store these two folders locally so you don't have to download it everytime):
+	- SteamVR: https://github.com/ValveSoftware/steamvr_unity_plugin => enter "Assets" and the folder SteamVR is the one you need to copy to your own "Assets" folder
+	- VRTK: https://github.com/thestonefox/VRTK.git  => same as above, but with VRTK folder
+6. Open the project in Unity (other needed files will be automatically generated)
 
 
 In case of pushing something unwanted to github, do next steps:
@@ -16,3 +19,5 @@ In case of pushing something unwanted to github, do next steps:
 2. "git add ."
 3. "git commit -a -m "delete X"
 4. push to github
+
+* We use SteamVR for developing in Unity with the VR headset. VRTK is used for developing without a headset, which uses a VR simulator. If working with headseat (default), disable (checkbox left of name in Inspector box): VRTK_SDK Manager and VRTK_SDK Setup objects in the scene. If working without headset, enable VRTK objects and disable [CameraRig] object.
