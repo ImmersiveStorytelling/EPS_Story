@@ -6,7 +6,15 @@ To be able to work on the project in Unity, to the following steps:
 3. Go to the project on which to work and open it
 4. Paste all the files you copied (CTRL + V)
 5. !!! The computer will prompt to ask to overwrite or skip already existing files. Make sure that you SKIP THE ALREADY EXISTING FILES. Do not overwrite them.
-6. Add two next folders in de Asset folder (store these two folders locally so you don't have to download it everytime):
+6. Delete file: Unity_Template_Project.sln
+7. Add two next folders in de Asset folder (store these two folders locally so you don't have to download it everytime):
 	- SteamVR: https://github.com/ValveSoftware/steamvr_unity_plugin => enter "Assets" and the folder SteamVR is the one you need to copy to your own "Assets" folder
 	- VRTK: https://github.com/thestonefox/VRTK.git  => same as above, but with VRTK folder
-7. Open the project in Unity and the rest will be automatically generated.
+8. Open the project in Unity and the rest will be automatically generated.
+
+To start the simulator:
+1. Disable the [CameraRig] by clicking on the item, then clicking the checkbox next to the name in the Inspector Box.
+2. Enable both VRTK_SDK Manager and VRTK_SDK Setup
+3. In the VRTK_SDK Setup object set SDK Selection to "Simulator". (Auto Populate should be enabled)
+4. In the VRTK_SDK Manager object click on the button "Auto Populate" (all Setup objects will be detected for the Manager to manage)
+5. Open the VRTK_SDK Setup object, which contains next object "VRSimulatorCameraRig", click on this. At the bottom in the Inspector box is a script attached: "VideoScript" with a public variable "Video Player". Drag the Video Player object from the Hierarchy tab into the field of the public variable.
