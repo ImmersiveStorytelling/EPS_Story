@@ -28,8 +28,8 @@ public class MeasureHeadMovementScript : MonoBehaviour {
 
     void updateVariables()
     {
-        //vAnglesHeadSet = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
-        vAnglesHeadSet = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
+        vAnglesHeadSet = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
+        //vAnglesHeadSet = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
         frameNumber++;
         currentTimeInMs = stopwatch.ElapsedMilliseconds;
     }
