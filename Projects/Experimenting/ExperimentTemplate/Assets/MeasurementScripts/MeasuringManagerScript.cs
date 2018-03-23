@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MeasuringManagerScript : MonoBehaviour {
 
-	// Use this for initialization
+    //public booleans for activating scripts
+
 	void Start () {
-		
+		//setup activated scripts with data if necessary => SetupDataObject
+		//write titles in csv with filewriter object (singleton)
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		
+		//cycle through all script that need to be activated
 	}
 }
