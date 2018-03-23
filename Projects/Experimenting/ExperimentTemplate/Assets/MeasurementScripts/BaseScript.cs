@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseScript {
+public abstract class BaseScript {
 
-	public void Start () {
-		
-	}
-	
-	public void Execute () {
-		
-	}
+	public abstract void Start (SetupDataObject data);
+	public abstract void Execute ();
 }
