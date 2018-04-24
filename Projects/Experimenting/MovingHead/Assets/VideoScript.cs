@@ -41,7 +41,7 @@ public class VideoScript : MonoBehaviour {
 
     private void checkHeadFrame()
     {
-        if (v.x > ())
+        //if (v.x > ())
     }
 
     Vector3 v = new Vector3(); //angles headset
