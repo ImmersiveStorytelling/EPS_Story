@@ -550,29 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 1051313153}
---- !u!114 &1508361440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1508361437}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2962ad7e0e7266428c193ecd2e5615d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FpsOfDevice: 90
---- !u!114 &1508361443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1508361437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72df129500be2d349aefc137f356dbe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  vRasterZeroPoint: {x: 40, y: 90, z: 0}
+  headNumberOfFrames: {x: 7, y: 13}
 --- !u!1001 &1723635903
 Prefab:
   m_ObjectHideFlags: 0
@@ -691,6 +670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 1051313153}
+  vRasterZeroPoint: {x: 0, y: 0, z: 0}
+  headNumberOfFrames: {x: 0, y: 0}
 --- !u!1 &2062552030 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1384746914293964, guid: be540b97364be0a4890e39e62ac89ed1,
