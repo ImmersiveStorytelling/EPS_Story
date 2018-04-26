@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2962ad7e0e7266428c193ecd2e5615d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FpsOfDevice: 90
+  FpsOfDevice: 71
 --- !u!114 &1508361443
 MonoBehaviour:
   m_ObjectHideFlags: 0
