@@ -550,8 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 1051313153}
-  vRasterZeroPoint: {x: 40, y: 90, z: 0}
-  headNumberOfFrames: {x: 7, y: 13}
+  Vzp: {x: 295, y: 0, z: 0}
+  NumberOfFramesHead: {x: 7, y: 13}
 --- !u!1001 &1723635903
 Prefab:
   m_ObjectHideFlags: 0
@@ -670,8 +670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 1051313153}
-  vRasterZeroPoint: {x: 0, y: 0, z: 0}
-  headNumberOfFrames: {x: 0, y: 0}
+  Vzp: {x: 0, y: 0, z: 0}
+  NumberOfFramesHead: {x: 0, y: 0}
 --- !u!1 &2062552030 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1384746914293964, guid: be540b97364be0a4890e39e62ac89ed1,
