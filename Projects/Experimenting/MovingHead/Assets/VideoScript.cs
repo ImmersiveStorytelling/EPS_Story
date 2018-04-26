@@ -48,6 +48,16 @@ public class VideoScript : MonoBehaviour {
 
         //UnityEngine.Debug.Log("ZP.x: " + Vzp.x + " and SP.x: " + vSp.x);
         //UnityEngine.Debug.Log("vRefMax.x: " + vRefUpper.x + " and vRefLow.x: " + vRefLower.x);
+
+        vRefUpper.y = Vzp.y + vSp.y;
+        vRefLower.y = Vzp.y;
+        if (vRefUpper.y > 359)
+        {
+            vRefUpper.y = vRefUpper.y - 360;
+        }
+
+        //UnityEngine.Debug.Log("ZP.y: " + Vzp.y + " and SP.y: " + vSp.y);
+        //UnityEngine.Debug.Log("vRefMax.y: " + vRefUpper.y + " and vRefLow.y: " + vRefLower.y);
     }
 
     private void setHeadFrame()
@@ -79,6 +89,33 @@ public class VideoScript : MonoBehaviour {
             if ((vAngle.x < vRefLower.x) && (vAngle.x > vRefUpper.x))
             {
                 UnityEngine.Debug.Log("difference: " + ((vAngle.x - vRefUpper.x) + (vRefLower.x - vAngle.x)));
+            }
+            else
+            {
+                UnityEngine.Debug.Log("INSIDE");
+            }
+        }
+
+        if (vRefUpper.y > vRefLower.y)
+        {
+            if (vAngle.y > vRefUpper.y)
+            {
+                UnityEngine.Debug.Log("difference: " + ((vAngle.y - vRefUpper.y) + ((360 - vAngle.y) + vRefLower.y)));
+            }
+            else if (vAngle.y < vRefLower.y)
+            {
+                UnityEngine.Debug.Log("INSIDE");
+            }
+            else
+            {
+                UnityEngine.Debug.Log("difference: " + (((360 - vRefUpper.y) + vAngle.y) + (vRefLower.y - vAngle.y)));
+            }
+        }
+        else if (vRefUpper.y <= vRefLower.y)
+        {
+            if ((vAngle.y < vRefLower.y) && (vAngle.y > vRefUpper.y))
+            {
+                UnityEngine.Debug.Log("difference: " + ((vAngle.y - vRefUpper.y) + (vRefLower.y - vAngle.y)));
             }
             else
             {
