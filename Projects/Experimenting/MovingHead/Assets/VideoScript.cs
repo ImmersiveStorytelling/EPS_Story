@@ -7,7 +7,7 @@ public class VideoScript : MonoBehaviour {
 
     public VideoPlayer VideoPlayer;
     public Vector3 Vzp = new Vector3(); //zero point where raster starts
-    public Vector2 Vsp = new Vector2(); //amount of dergees of turning head; sideways spread of 180°; up/downwards spread of 150°
+    public Vector2 Vsp = new Vector2(); //amount of dergees of turning head
     public Vector2Int NumberOfFrames = new Vector2Int(); //states the number of frames in rows and columns of head frames
 
     // Use this for initialization
@@ -54,22 +54,22 @@ public class VideoScript : MonoBehaviour {
 
     private void setHeadFrame()
     {
-        UnityEngine.Debug.Log("Frame x: " + checkRasterForFrame(vRefUpper.x, vRefLower.x, vAngle.x, NumberOfFrames.x));
-        UnityEngine.Debug.Log("Frame y: " + checkRasterForFrame(vRefUpper.y, vRefLower.y, vAngle.y, NumberOfFrames.y));
+        mimicFrame.x = checkRasterForFrame(vRefUpper.x, vRefLower.x, vAngle.x, NumberOfFrames.x, Vsp.x);
+        mimicFrame.y = checkRasterForFrame(vRefUpper.y, vRefLower.y, vAngle.y, NumberOfFrames.y, Vsp.y);
 
-        //headFrameToShowYZ.x = setFrameNumberOfParameter(vAngleHeadset.x, vSpread.x, vRasterZeroPoint.x, headNumberOfFrames.x);
-        //headFrameToShowYZ.y = setFrameNumberOfParameter(vAngleHeadset.y, vSpread.y, vRasterZeroPoint.y, headNumberOfFrames.y);
-
-
-        //UnityEngine.Debug.Log("HeadFrame to play: x" + headFrameToShowYZ.x + "y" + headFrameToShowYZ.y + ".png");
-        //playHeadFrame(headFrameToShowYZ);
+        playMimicFrame(mimicFrame);
     }
-    private int checkRasterForFrame(float vRefUpper, float vRefLower, float vAngle, int numberOfFrames) //return float frame number
+    private void playMimicFrame(Vector2Int mimicFrame)
+    {
+        string frameToPlay = "x" + mimicFrame.x + "y" + mimicFrame.y + ".png";
+        UnityEngine.Debug.Log(frameToPlay); //TODO: SET SELECTED FRAME TO PLAY
+    }
+    private int checkRasterForFrame(float vRefUpper, float vRefLower, float vAngle, int numberOfFrames, float spread) //return float frame number
     {
         if (vRefUpper > vRefLower) //raster between 0 - 360 degrees boundaries
         {
             if ((vAngle < vRefUpper) && (vAngle > vRefLower))
-                return selectFrameFromRaster();
+                return selectFrameFromRaster(vRefUpper, vRefLower, vAngle, numberOfFrames, spread);
             else
             {
                 if (vAngle > vRefUpper)
@@ -98,22 +98,21 @@ public class VideoScript : MonoBehaviour {
                     return 0;
             }
             else
-                return selectFrameFromRaster();
+                return selectFrameFromRaster(vRefUpper, vRefLower, vAngle, numberOfFrames, spread);
         }
     }
-    private int selectFrameFromRaster()
+    private int selectFrameFromRaster(float vRefUpper, float vRefLower, float vAngle, int numberOfFrames, float spread)
     {
-        return 999;
-    }
-
-
-    private int setFrameNumberOfParameter(double vAngle, double vSpread, double vRasterZeroPoint, int numberOfFrames)
-    {
-        return 0;
+        if ((vRefUpper > vRefLower) || (vAngle > vRefLower))
+            return (int)((numberOfFrames * (vAngle - vRefLower)) / spread);
+        else
+        {
+            return (int)((numberOfFrames * (vAngle + (360 - vRefLower))) / spread);
+        }
     }
 
     Vector3 vAngle = new Vector3(); //angles headset
     Vector2 vRefUpper = new Vector2(); //point to reference to upper boundary => Vzp + vSp
     Vector2 vRefLower = new Vector2(); //point to reference to lower boundary => Vzp
-    Vector2Int headFrameToShowYZ = new Vector2Int(); //this vector will hold the values of which to select the correct frame from
+    Vector2Int mimicFrame = new Vector2Int(); //this vector will hold the values of which to select the correct frame from
 }

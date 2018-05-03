@@ -710,8 +710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 1051313153}
   Vzp: {x: 320, y: 40, z: 0}
-  Vsp: {x: 150, y: 180}
-  NumberOfFrames: {x: 0, y: 0}
+  Vsp: {x: 100, y: 120}
+  NumberOfFrames: {x: 7, y: 15}
 --- !u!1001 &1723635903
 Prefab:
   m_ObjectHideFlags: 0
