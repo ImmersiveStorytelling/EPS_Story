@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using UnityEngine;
 
-public class MeasureHeadMovementScript : MonoBehaviour {
+public class MeasureHeadMovementSimulatorScript : MonoBehaviour {
 
     public int FpsOfDevice = 90; //standard
 
@@ -22,15 +22,14 @@ public class MeasureHeadMovementScript : MonoBehaviour {
 
         if ((currentTimeInMs - previousTimeInMs) > msInterval)
         {
-            //writeNewLineToCsv(frameNumber, currentTimeInMs,  (int)vAnglesHeadSet.x, (int)vAnglesHeadSet.y, (int)vAnglesHeadSet.z);
-            writeNewLineToCsv(frameNumber, currentTimeInMs, vAnglesHeadSet);
+            writeNewLineToCsv(frameNumber, currentTimeInMs,  (int)vAnglesHeadSet.x, (int)vAnglesHeadSet.y, (int)vAnglesHeadSet.z);
         }
 	}
 
     void updateVariables()
     {
-        vAnglesHeadSet = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
-        //vAnglesHeadSet = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
+        //vAnglesHeadSet = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
+        vAnglesHeadSet = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
         frameNumber++;
         currentTimeInMs = stopwatch.ElapsedMilliseconds;
     }
@@ -52,34 +51,16 @@ public class MeasureHeadMovementScript : MonoBehaviour {
     {
         dateTime = System.DateTime.Now.ToString("dd-MM_hhumm");
         StringWriter csvTitle = new StringWriter();
-        csvTitle.WriteLine("FrameNumber;Time(ms);xAngle(°);yAngle(°);zAngle(°);Right/Left;Up/Down;TiltRight/TiltLeft");
+        csvTitle.WriteLine("FrameNumber;Time(ms);xAngle(°);yAngle(°);zAngle(°)");
         csvPath = "Assets/MeasurementData/M_HeadMovement_" + dateTime + ".csv";
         File.AppendAllText(csvPath, csvTitle.ToString());
     }
-
-    //void writeNewLineToCsv(int frameNumber, long currentTimeInMs, int xAngle, int yAngle, int zAngle)
-    void writeNewLineToCsv(int frameNumber, long currentTimeInMs, Vector3 angles)
+    void writeNewLineToCsv(int frameNumber, long currentTimeInMs, int xAngle, int yAngle, int zAngle)
     {
-        UnityEngine.Debug.Log("X: " + angles.x + " Y: " + angles.y + " Z: " + angles.z);
+        UnityEngine.Debug.Log("X: " + vAnglesHeadSet.x + " Y: " + vAnglesHeadSet.y + " Z: " + vAnglesHeadSet.z);
         StringWriter csvTitle = new StringWriter();
-        csvTitle.WriteLine(frameNumber + ";" + currentTimeInMs + ";" + (int)angles.x + ";" + (int)angles.y + ";" + (int)angles.z + ";" + calculateDirectionOfAngle((int)angles.x) + ";" + calculateDirectionOfAngle((int)angles.y) + ";" + calculateDirectionOfAngle((int)angles.z) + ";");
+        csvTitle.WriteLine(frameNumber + ";" + currentTimeInMs + ";" + xAngle + ";" + yAngle + ";" + zAngle + ";");
         File.AppendAllText(csvPath, csvTitle.ToString());
-
-
-
-        setPreviousAngles(angles);
-    }
-
-    int calculateDirectionOfAngle(int angle)
-    {
-
-
-        return 0;
-    }
-    void setPreviousAngles(Vector3 angles)
-    {
-        vAnglesHeadsetPrevious = angles;
-        UnityEngine.Debug.Log("Previous: X: " + vAnglesHeadsetPrevious.x + " Y: " + vAnglesHeadsetPrevious.y + " Z: " + vAnglesHeadsetPrevious.z);
     }
 
     int fpsOfDevice = 90;
@@ -89,7 +70,6 @@ public class MeasureHeadMovementScript : MonoBehaviour {
     long previousTimeInMs = 0;
     int frameNumber = 0;
     Vector3 vAnglesHeadSet = new Vector3();
-    Vector3 vAnglesHeadsetPrevious = new Vector3();
     string dateTime;
     string csvPath;
 }

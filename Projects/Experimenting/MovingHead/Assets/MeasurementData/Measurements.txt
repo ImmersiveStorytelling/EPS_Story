@@ -1,0 +1,1 @@
+In this folder, the measurements will be automatically stored when conducting measurement.
