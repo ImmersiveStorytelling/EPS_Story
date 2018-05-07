@@ -31,7 +31,6 @@ public class VideoScript : MonoBehaviour {
     {
         //vAnglesHeadset = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
         vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
-        UnityEngine.Debug.Log("vAngleHeadset: X: " + vAngle.x + " Y: " + vAngle.y);
 
         setBoundaries_mimicingMirrorRaster();
     }
