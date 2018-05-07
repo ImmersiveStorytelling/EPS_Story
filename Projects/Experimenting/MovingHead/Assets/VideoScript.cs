@@ -10,9 +10,12 @@ public class VideoScript : MonoBehaviour {
     public Vector2 Vsp = new Vector2(); //amount of dergees of turning head
     public Vector2Int NumberOfFrames = new Vector2Int(); //states the number of frames in rows and columns of head frames
 
+    ImageLoaderScript imageloader;
+
     // Use this for initialization
     void Start () {
         startTakeNumber(1);
+        imageloader = GetComponent<ImageLoaderScript>();
 	}
 
     // Update is called once per frame
@@ -61,7 +64,9 @@ public class VideoScript : MonoBehaviour {
     private void playMimicFrame(Vector2Int mimicFrame)
     {
         string frameToPlay = "x" + mimicFrame.x + "y" + mimicFrame.y + ".png";
-        UnityEngine.Debug.Log(frameToPlay); //TODO: SET SELECTED FRAME TO PLAY
+        //UnityEngine.Debug.Log(frameToPlay);
+
+        imageloader.loadImage(mimicFrame);
     }
     private int checkRasterForFrame(float vRefUpper, float vRefLower, float vAngle, int numberOfFrames, float spread) //return float frame number
     {
@@ -103,10 +108,10 @@ public class VideoScript : MonoBehaviour {
     private int selectFrameFromRaster(float vRefUpper, float vRefLower, float vAngle, int numberOfFrames, float spread)
     {
         if ((vRefUpper > vRefLower) || (vAngle > vRefLower))
-            return (int)((numberOfFrames * (vAngle - vRefLower)) / spread);
+            return numberOfFrames - 1 -(int)((numberOfFrames * (vAngle - vRefLower)) / spread);
         else
         {
-            return (int)((numberOfFrames * (vAngle + (360 - vRefLower))) / spread);
+            return numberOfFrames - 1 -(int)((numberOfFrames * (vAngle + (360 - vRefLower))) / spread);
         }
     }
 

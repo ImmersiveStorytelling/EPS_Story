@@ -432,7 +432,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 368a0d569ae0f184eb8b98919cfb14f2, type: 2}
+  - {fileID: 2100000, guid: 570314ce9e2e58e4786977772863ebc0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -479,13 +479,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1003082861}
-  m_LocalRotation: {x: -0, y: -0, z: -0.043551125, w: 0.9990513}
-  m_LocalPosition: {x: -2.23, y: 0.85000014, z: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.23, y: 0.02, z: 2}
   m_LocalScale: {x: 0.51, y: 0.51, z: 0.51}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051313152
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +711,20 @@ MonoBehaviour:
   VideoPlayer: {fileID: 1051313153}
   Vzp: {x: 320, y: 40, z: 0}
   Vsp: {x: 100, y: 120}
-  NumberOfFrames: {x: 15, y: 31}
+  NumberOfFrames: {x: 7, y: 13}
+--- !u!114 &1508361440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508361437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97a6d31b1aa5f143897d37b2f23962a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageResolution: {x: 1500, y: 1500}
+  overlay: {fileID: 2100000, guid: 570314ce9e2e58e4786977772863ebc0, type: 2}
 --- !u!1001 &1723635903
 Prefab:
   m_ObjectHideFlags: 0
