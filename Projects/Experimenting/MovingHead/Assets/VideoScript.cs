@@ -32,8 +32,8 @@ public class VideoScript : MonoBehaviour {
 
     private void updateVariables()
     {
-        //vAnglesHeadset = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
-        vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
+        vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
+        //vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
 
         setBoundaries_mimicingMirrorRaster();
     }
@@ -79,14 +79,14 @@ public class VideoScript : MonoBehaviour {
                 if (vAngle > vRefUpper)
                 {
                     if ((vAngle - vRefUpper) < ((360 - vAngle) + vRefLower))
-                        return numberOfFrames;
+                        return numberOfFrames - 1;
                     else
                         return 0;
                 }
                 else
                 {
                     if (((360 - vRefUpper) + vAngle) < (vRefLower - vAngle))
-                        return numberOfFrames;
+                        return numberOfFrames - 1;
                     else
                         return 0;
                 }
@@ -97,7 +97,7 @@ public class VideoScript : MonoBehaviour {
             if ((vAngle < vRefLower) && (vAngle > vRefUpper))
             {
                 if ((vAngle - vRefUpper) < (vRefLower - vAngle))
-                    return numberOfFrames;
+                    return numberOfFrames - 1;
                 else
                     return 0;
             }
