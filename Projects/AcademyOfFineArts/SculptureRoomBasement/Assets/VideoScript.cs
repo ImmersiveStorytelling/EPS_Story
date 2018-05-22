@@ -15,7 +15,7 @@ public class VideoScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        camera = GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,14 @@ public class VideoScript : MonoBehaviour {
         for (int i = 0; i < zoomPictureLocations.Count; i++)
         {
             if (detector.checkForHit(zoomPictureLocations[i].Vector_ZeroPoint, zoomPictureLocations[i].Vector_Spread, vAngle))
+            {
                 Debug.Log("object of picture to zoom on: " + i); //zoom in location
+
+                camera.fieldOfView = 50;
+            }
+            else
+                camera.fieldOfView = 60;
+
         }
 	}
 
@@ -37,4 +44,5 @@ public class VideoScript : MonoBehaviour {
 
     ZoomPictureDetector detector = new ZoomPictureDetector();
     Vector3 vAngle = new Vector3();
+    Camera camera;
 }
