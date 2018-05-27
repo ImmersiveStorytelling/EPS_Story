@@ -5,6 +5,7 @@ using UnityEngine;
 public class VideoScript : MonoBehaviour {
 
     public List<ZoomPictureLocation> zoomPictureLocations = new List<ZoomPictureLocation>();
+    public Camera cam;
 
     [Serializable]
     public class ZoomPictureLocation
@@ -15,8 +16,10 @@ public class VideoScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        camera = GetComponent<Camera>();
-	}
+        //cam = GameObject.Find("Camera (eye)").GetComponent<Camera>();
+        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,22 +30,21 @@ public class VideoScript : MonoBehaviour {
             {
                 Debug.Log("object of picture to zoom on: " + i); //zoom in location
 
-                camera.fieldOfView = 50;
+                cam.fieldOfView = 30;
             }
             else
-                camera.fieldOfView = 60;
-
+            {
+                cam.fieldOfView = 60;
+            }
         }
 	}
 
     private void updateVariables()
     {
-        //vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
-        vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
+        vAngle = cam.gameObject.transform.rotation.eulerAngles;
         //Debug.Log("vAngle X: " + vAngle.x + " Y: " + vAngle.y);
     }
 
     ZoomPictureDetector detector = new ZoomPictureDetector();
     Vector3 vAngle = new Vector3();
-    Camera camera;
 }
