@@ -28,11 +28,11 @@ public class VideoScript : MonoBehaviour {
     private void setStates()
     {
         states = new AbstractState[amountOfStates];
-        states[0] = new State0(0);
-        states[1] = new State1(1);
-        states[2] = new State2(2);
-        states[3] = new State3(3);
-        states[4] = new State4(4);
+        states[0] = new ExampleState(0);
+        states[1] = new ExampleState(1);
+        states[2] = new ExampleState(2);
+        states[3] = new ExampleState(3);
+        states[4] = new ExampleState(4);
     }
     private void checkParametersOfStates()
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class State1: AbstractState
+public class ExampleState: AbstractState
 {
-    public State1(int stateID)
+    public ExampleState(int stateID)
     {
         this.stateID = stateID;
         stateFinished = false;
