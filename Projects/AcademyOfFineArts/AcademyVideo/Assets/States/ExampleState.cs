@@ -35,8 +35,8 @@ public class ExampleState: AbstractState
                 stopwatch.Reset();
                 _stateFinished = true;
             }
-            //else
-            //    UnityEngine.Debug.Log("time in ms elapsed: " + stopwatch.ElapsedMilliseconds);
+            else
+                UnityEngine.Debug.Log("time in ms elapsed: " + stopwatch.ElapsedMilliseconds);
         }
     }
 

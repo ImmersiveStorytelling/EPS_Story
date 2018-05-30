@@ -18,12 +18,12 @@ public class VideoScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //if (currentState.IsFinished())
-        //{
-        //    changeToNextState();
-        //    currentState.RunState();
-        //}
-        //currentState.RunState();
+        if (currentState.IsFinished())
+        {
+            changeToNextState();
+            currentState.RunState();
+        }
+        currentState.RunState();
     }
 
     private void setStates()
