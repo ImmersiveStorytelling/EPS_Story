@@ -21,7 +21,7 @@ public class VideoScript : MonoBehaviour {
         if (currentState.IsFinished())
         {
             changeToNextState();
-            currentState.RunState();
+            currentState.StartState();
         }
         currentState.RunState();
     }
@@ -32,8 +32,6 @@ public class VideoScript : MonoBehaviour {
         states[0] = new ExampleState(0, VideoPlayer, "test1");
         states[1] = new ExampleState(1, VideoPlayer, "test2");
         states[2] = new ExampleState(2, VideoPlayer, "test3");
-        //states[3] = new ExampleState(3, VideoPlayer);
-        //states[4] = new ExampleState(4, VideoPlayer);
     }
     private void checkParametersOfStates()
     {
