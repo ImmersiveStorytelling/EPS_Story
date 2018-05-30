@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public abstract class AbstractState {
 
@@ -29,5 +30,11 @@ public abstract class AbstractState {
             UnityEngine.Debug.LogWarning("Parameter 'stateFinished' is set on 'true' before entering stage.");
             return false;
         }
+    }
+
+    public void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
+    {
+        videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
+        videoPlayer.Play();
     }
 }

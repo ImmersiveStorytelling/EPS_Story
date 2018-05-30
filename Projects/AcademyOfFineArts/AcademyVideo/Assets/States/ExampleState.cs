@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ExampleState: AbstractState
 {
@@ -10,6 +11,12 @@ public class ExampleState: AbstractState
         this.stateID = stateID;
         stateFinished = false;
     }
+
+    //public void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
+    //{
+    //    videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
+    //    videoPlayer.Play();
+    //}
 
     public override void RunState()
     {
