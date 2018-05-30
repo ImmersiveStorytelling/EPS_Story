@@ -6,11 +6,12 @@ using UnityEngine.Video;
 
 public class StatePlayVideo: AbstractState
 {
-    public StatePlayVideo(int stateID, VideoPlayer videoPlayer, string nameOfVideo)
+    public StatePlayVideo(int stateID, VideoPlayer videoPlayer, string nameOfVideo, int timeOfVideoInMs)
     {
         _stateID = stateID;
         _nameOfVideo = nameOfVideo;
         _videoPlayer = videoPlayer;
+        this.timeOfVideoInMs = timeOfVideoInMs;
 
         _stateFinished = false;
     }
@@ -19,20 +20,12 @@ public class StatePlayVideo: AbstractState
     {
         UnityEngine.Debug.Log("state " + _stateID);
 
-        if (stopwatch.ElapsedMilliseconds > 2000)
+        if (_videoPlayer.time * 1000 >= timeOfVideoInMs)
         {
-            stopwatch.Stop();
-            stopwatch.Reset();
             _stateFinished = true;
         }
         else
-            UnityEngine.Debug.Log("time in ms elapsed: " + stopwatch.ElapsedMilliseconds);
-    }
-
-    public override void StartState()
-    {
-        base.StartState();
-        stopwatch.Start();
+            UnityEngine.Debug.Log("time in ms elapsed: " + (int)(_videoPlayer.time * 1000));
     }
 
     public override bool IsFinished()
@@ -45,5 +38,6 @@ public class StatePlayVideo: AbstractState
         _stateFinished = false;
     }
 
-    Stopwatch stopwatch = new Stopwatch();
+ 
+    int timeOfVideoInMs;
 }

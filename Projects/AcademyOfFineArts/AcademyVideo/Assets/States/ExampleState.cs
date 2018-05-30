@@ -19,7 +19,7 @@ public class ExampleState: AbstractState
     {
         UnityEngine.Debug.Log("state " + _stateID);
 
-        if (stopwatch.ElapsedMilliseconds > 2000)
+        if (stopwatch.ElapsedMilliseconds >= 2000)
         {
             stopwatch.Stop();
             stopwatch.Reset();
