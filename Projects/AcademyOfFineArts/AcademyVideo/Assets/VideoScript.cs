@@ -10,19 +10,19 @@ public class VideoScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         setStates();
-        checkParametersOfStates();
-        setStartState();
+         checkParametersOfStates();
+         setStartState();
+         PlayVideoByName("test2");
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         if (currentState.IsFinished())
         {
             changeToNextState();
+            currentState.RunState();
         }
-            
-        currentState.RunState();
 	}
 
     private void setStates()
@@ -59,9 +59,10 @@ public class VideoScript : MonoBehaviour {
 
         currentState = states[currentStateNumber];
     }
-    private void startTakeNumber(int numberOfTake)
+
+    private void PlayVideoByName(string nameOfVideo)
     {
-        VideoPlayer.url = "Assets/Footage/" + numberOfTake.ToString() + ".MP4";
+        VideoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
         VideoPlayer.Play();
     }
 
@@ -69,5 +70,5 @@ public class VideoScript : MonoBehaviour {
     int amountOfStates = 5;
     int currentStateNumber;
     AbstractState currentState;
-    
+
 }

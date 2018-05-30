@@ -16,8 +16,6 @@ public class VideoScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //cam = GameObject.Find("Camera (eye)").GetComponent<Camera>();
-        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
     }
 	
@@ -26,16 +24,32 @@ public class VideoScript : MonoBehaviour {
         updateVariables();
         for (int i = 0; i < zoomPictureLocations.Count; i++)
         {
-            if (detector.checkForHit(zoomPictureLocations[i].Vector_ZeroPoint, zoomPictureLocations[i].Vector_Spread, vAngle))
+            if (detector.checkForHitLocation(zoomPictureLocations[i].Vector_ZeroPoint, zoomPictureLocations[i].Vector_Spread, vAngle))
             {
-                Debug.Log("object of picture to zoom on: " + i); //zoom in location
+                if (startTime <= 0)
+                {
+                    startTime = DateTime.Now.Millisecond;
+                    Debug.Log("IN");
+                }
 
-                cam.fieldOfView = 30;
+                currentTime = DateTime.Now.Millisecond - startTime;
+                Debug.Log("currentTime: " + currentTime);
+
+                if (currentTime > durationForShowingPicture)
+                {
+                    //Debug.Log("object of picture to zoom on: " + i); //zoom in location
+                    //Debug.Log("Time until zooming in: " + startTime);
+                    Debug.Log("FIRE");
+                    //load image to show
+                }
+
+
             }
             else
             {
-                cam.fieldOfView = 60;
-            }
+                startTime = 0;
+                Debug.Log("OUT");
+            } 
         }
 	}
 
@@ -47,4 +61,7 @@ public class VideoScript : MonoBehaviour {
 
     ZoomPictureDetector detector = new ZoomPictureDetector();
     Vector3 vAngle = new Vector3();
+    int[] startTime; //time in ms
+    int[] currentTime;
+    int[] durationForShowingPicture = 5000; //2 seconds
 }

@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class ZoomPictureDetector {
 
-    public bool checkForHit(Vector2 vZp, Vector2 vSp, Vector3 vAngle)
+    public bool checkForHitLocation(Vector2 vZp, Vector2 vSp, Vector3 vAngle)
     {
         updateVariables(vZp, vSp, vAngle);
         setBoundaries_mimicingMirrorRaster(v_zp, v_sp);
