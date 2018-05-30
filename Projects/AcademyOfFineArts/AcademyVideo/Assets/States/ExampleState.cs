@@ -6,10 +6,14 @@ using UnityEngine.Video;
 
 public class ExampleState: AbstractState
 {
-    public ExampleState(int stateID)
+    string video;
+    VideoPlayer videoPlayer;
+    public ExampleState(int stateID, VideoPlayer videoPlayer)
     {
         this.stateID = stateID;
         stateFinished = false;
+        video = "test1";
+        this.videoPlayer = videoPlayer;
     }
 
     //public void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
@@ -17,6 +21,10 @@ public class ExampleState: AbstractState
     //    videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
     //    videoPlayer.Play();
     //}
+    public void StartState()
+    {
+        PlayVideoByName(videoPlayer, video);
+    }
 
     public override void RunState()
     {

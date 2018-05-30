@@ -6,7 +6,7 @@ using UnityEngine.Video;
 public class VideoScript : MonoBehaviour {
 
     public VideoPlayer VideoPlayer;
-    ExampleState state = new ExampleState(0);
+    ExampleState state;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,8 @@ public class VideoScript : MonoBehaviour {
         //checkParametersOfStates();
         //setStartState();
         //PlayVideoByName("test1");
-        state.PlayVideoByName(VideoPlayer, "test2");
+        state = new ExampleState(0, VideoPlayer);
+        state.StartState();
     }
 	
 	// Update is called once per frame
@@ -31,11 +32,11 @@ public class VideoScript : MonoBehaviour {
     private void setStates()
     {
         states = new AbstractState[amountOfStates];
-        states[0] = new ExampleState(0);
-        states[1] = new ExampleState(1);
-        states[2] = new ExampleState(2);
-        states[3] = new ExampleState(3);
-        states[4] = new ExampleState(4);
+        states[0] = new ExampleState(0, VideoPlayer);
+        states[1] = new ExampleState(1, VideoPlayer);
+        states[2] = new ExampleState(2, VideoPlayer);
+        states[3] = new ExampleState(3, VideoPlayer);
+        states[4] = new ExampleState(4, VideoPlayer);
     }
     private void checkParametersOfStates()
     {

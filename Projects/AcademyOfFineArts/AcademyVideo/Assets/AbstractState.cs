@@ -32,7 +32,7 @@ public abstract class AbstractState {
         }
     }
 
-    public void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
+    protected void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
     {
         videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
         videoPlayer.Play();
