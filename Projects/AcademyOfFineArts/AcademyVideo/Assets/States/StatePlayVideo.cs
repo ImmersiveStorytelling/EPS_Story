@@ -28,16 +28,6 @@ public class StatePlayVideo: AbstractState
             UnityEngine.Debug.Log("time in ms elapsed: " + (int)(_videoPlayer.time * 1000));
     }
 
-    public override bool IsFinished()
-    {
-        return _stateFinished;
-    }
-
-    public override void StopState()
-    {
-        _stateFinished = false;
-    }
-
  
     int timeOfVideoInMs;
 }

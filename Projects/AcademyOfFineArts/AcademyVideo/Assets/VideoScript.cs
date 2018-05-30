@@ -10,7 +10,7 @@ public class VideoScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         setStates();
-        //checkParametersOfStates();
+        checkParametersOfStates();
         setStartState();
         currentState.StartState();
     }

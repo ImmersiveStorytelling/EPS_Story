@@ -35,15 +35,5 @@ public class ExampleState: AbstractState
         stopwatch.Start();
     }
 
-    public override bool IsFinished()
-    {
-        return _stateFinished;
-    }
-
-    public override void StopState()
-    {
-        _stateFinished = false;
-    }
-
     Stopwatch stopwatch = new Stopwatch();
 }
