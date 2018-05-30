@@ -10,7 +10,7 @@ public abstract class AbstractState {
     protected VideoPlayer _videoPlayer;
     protected string _nameOfVideo;
 
-    public void StartState()
+    public virtual void StartState()
     {
         PlayVideoByName(_videoPlayer, _nameOfVideo);
     }

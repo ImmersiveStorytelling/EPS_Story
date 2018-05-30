@@ -19,19 +19,20 @@ public class StatePlayVideo: AbstractState
     {
         UnityEngine.Debug.Log("state " + _stateID);
 
-        if (!stopwatch.IsRunning)
-            stopwatch.Start();
-        else
+        if (stopwatch.ElapsedMilliseconds > 2000)
         {
-            if (stopwatch.ElapsedMilliseconds > 2000)
-            {
-                stopwatch.Stop();
-                stopwatch.Reset();
-                _stateFinished = true;
-            }
-            else
-                UnityEngine.Debug.Log("time in ms elapsed: " + stopwatch.ElapsedMilliseconds);
+            stopwatch.Stop();
+            stopwatch.Reset();
+            _stateFinished = true;
         }
+        else
+            UnityEngine.Debug.Log("time in ms elapsed: " + stopwatch.ElapsedMilliseconds);
+    }
+
+    public override void StartState()
+    {
+        base.StartState();
+        stopwatch.Start();
     }
 
     public override bool IsFinished()
