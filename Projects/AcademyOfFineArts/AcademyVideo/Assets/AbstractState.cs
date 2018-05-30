@@ -5,8 +5,15 @@ using UnityEngine.Video;
 
 public abstract class AbstractState {
 
-    public int stateID;
-    public bool stateFinished = false;
+    protected int _stateID;
+    protected bool _stateFinished = false;
+    protected VideoPlayer _videoPlayer;
+    protected string _nameOfVideo;
+
+    public void StartState()
+    {
+        PlayVideoByName(_videoPlayer, _nameOfVideo);
+    }
 
     //In this method you will have to set the bool variable 'stateFinished' when the state is finished, 
     //so that you can switch to the next state.
@@ -23,7 +30,7 @@ public abstract class AbstractState {
     //This can be used to override and check for each state separate, which then can be run by the manager script to run over all methods.
     public virtual bool CheckParameters()
     {
-        if (!stateFinished)
+        if (!_stateFinished)
             return true;
         else
         {

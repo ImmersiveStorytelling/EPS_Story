@@ -6,16 +6,13 @@ using UnityEngine.Video;
 public class VideoScript : MonoBehaviour {
 
     public VideoPlayer VideoPlayer;
-    ExampleState state;
 
 	// Use this for initialization
 	void Start () {
-        //setStates();
+        setStates();
         //checkParametersOfStates();
-        //setStartState();
-        //PlayVideoByName("test1");
-        state = new ExampleState(0, VideoPlayer);
-        state.StartState();
+        setStartState();
+        currentState.StartState();
     }
 	
 	// Update is called once per frame
@@ -32,11 +29,11 @@ public class VideoScript : MonoBehaviour {
     private void setStates()
     {
         states = new AbstractState[amountOfStates];
-        states[0] = new ExampleState(0, VideoPlayer);
-        states[1] = new ExampleState(1, VideoPlayer);
-        states[2] = new ExampleState(2, VideoPlayer);
-        states[3] = new ExampleState(3, VideoPlayer);
-        states[4] = new ExampleState(4, VideoPlayer);
+        states[0] = new ExampleState(0, VideoPlayer, "test1");
+        states[1] = new ExampleState(1, VideoPlayer, "test2");
+        states[2] = new ExampleState(2, VideoPlayer, "test3");
+        //states[3] = new ExampleState(3, VideoPlayer);
+        //states[4] = new ExampleState(4, VideoPlayer);
     }
     private void checkParametersOfStates()
     {
@@ -71,7 +68,7 @@ public class VideoScript : MonoBehaviour {
     }
 
     AbstractState[] states;
-    int amountOfStates = 5;
+    int amountOfStates = 3;
     int currentStateNumber;
     AbstractState currentState;
 

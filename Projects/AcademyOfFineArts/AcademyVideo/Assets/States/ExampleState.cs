@@ -6,14 +6,13 @@ using UnityEngine.Video;
 
 public class ExampleState: AbstractState
 {
-    string video;
-    VideoPlayer videoPlayer;
-    public ExampleState(int stateID, VideoPlayer videoPlayer)
+    public ExampleState(int stateID, VideoPlayer videoPlayer, string nameOfVideo)
     {
-        this.stateID = stateID;
-        stateFinished = false;
-        video = "test1";
-        this.videoPlayer = videoPlayer;
+        _stateID = stateID;
+        _nameOfVideo = nameOfVideo;
+        _videoPlayer = videoPlayer;
+
+        _stateFinished = false;
     }
 
     //public void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
@@ -21,14 +20,10 @@ public class ExampleState: AbstractState
     //    videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
     //    videoPlayer.Play();
     //}
-    public void StartState()
-    {
-        PlayVideoByName(videoPlayer, video);
-    }
 
     public override void RunState()
     {
-        UnityEngine.Debug.Log("state " + stateID);
+        UnityEngine.Debug.Log("state " + _stateID);
 
         if (!stopwatch.IsRunning)
             stopwatch.Start();
@@ -38,7 +33,7 @@ public class ExampleState: AbstractState
             {
                 stopwatch.Stop();
                 stopwatch.Reset();
-                stateFinished = true;
+                _stateFinished = true;
             }
             //else
             //    UnityEngine.Debug.Log("time in ms elapsed: " + stopwatch.ElapsedMilliseconds);
@@ -47,12 +42,12 @@ public class ExampleState: AbstractState
 
     public override bool IsFinished()
     {
-        return stateFinished;
+        return _stateFinished;
     }
 
     public override void StopState()
     {
-        stateFinished = false;
+        _stateFinished = false;
     }
 
     Stopwatch stopwatch = new Stopwatch();
