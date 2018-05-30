@@ -4,9 +4,9 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class ExampleState: AbstractState
+public class StatePlayVideo: AbstractState
 {
-    public ExampleState(int stateID, VideoPlayer videoPlayer, string nameOfVideo)
+    public StatePlayVideo(int stateID, VideoPlayer videoPlayer, string nameOfVideo)
     {
         _stateID = stateID;
         _nameOfVideo = nameOfVideo;

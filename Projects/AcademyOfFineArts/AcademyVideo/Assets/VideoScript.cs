@@ -29,9 +29,9 @@ public class VideoScript : MonoBehaviour {
     private void setStates()
     {
         states = new AbstractState[amountOfStates];
-        states[0] = new ExampleState(0, VideoPlayer, "test1");
-        states[1] = new ExampleState(1, VideoPlayer, "test2");
-        states[2] = new ExampleState(2, VideoPlayer, "test3");
+        states[0] = new StatePlayVideo(0, VideoPlayer, "test1");
+        states[1] = new StatePlayVideo(1, VideoPlayer, "test2");
+        states[2] = new StatePlayVideo(2, VideoPlayer, "test3");
     }
     private void checkParametersOfStates()
     {
