@@ -10,9 +10,9 @@ public class VideoScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         setStates();
-         checkParametersOfStates();
-         setStartState();
-         PlayVideoByName("test2");
+        checkParametersOfStates();
+        setStartState();
+        currentState.PlayVideoByName(VideoPlayer, "test1");
     }
 	
 	// Update is called once per frame
@@ -22,17 +22,18 @@ public class VideoScript : MonoBehaviour {
         {
             changeToNextState();
             currentState.RunState();
+            currentState.PlayVideoByName(VideoPlayer, "test2");
         }
-	}
+        currentState.RunState();
+    }
 
     private void setStates()
     {
         states = new AbstractState[amountOfStates];
-        states[0] = new ExampleState(0);
-        states[1] = new ExampleState(1);
-        states[2] = new ExampleState(2);
-        states[3] = new ExampleState(3);
-        states[4] = new ExampleState(4);
+        states[0] = new StateVideoPlay(0, VideoPlayer, "test1", 2000);
+        states[1] = new StateVideoPlay(1, VideoPlayer, "test2", 2000);
+        states[2] = new StateVideoPlay(2, VideoPlayer, "test1", 2000);
+        states[3] = new StateVideoPlay(3, VideoPlayer,  "test2", 2000);
     }
     private void checkParametersOfStates()
     {
@@ -60,14 +61,14 @@ public class VideoScript : MonoBehaviour {
         currentState = states[currentStateNumber];
     }
 
-    private void PlayVideoByName(string nameOfVideo)
-    {
-        VideoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
-        VideoPlayer.Play();
-    }
+    //private void PlayVideoByName(string nameOfVideo)
+    //{
+    //    VideoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
+    //    VideoPlayer.Play();
+    //}
 
     AbstractState[] states;
-    int amountOfStates = 5;
+    int amountOfStates = 4;
     int currentStateNumber;
     AbstractState currentState;
 

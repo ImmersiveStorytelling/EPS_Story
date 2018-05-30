@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public abstract class AbstractState {
 
-    public int stateID;
-    public bool stateFinished = false;
+    public int StateID;
+    public bool StateFinished = false;
+    public VideoPlayer VideoPlayer;
 
     //In this method you will have to set the bool variable 'stateFinished' when the state is finished, 
     //so that you can switch to the next state.
@@ -22,12 +24,18 @@ public abstract class AbstractState {
     //This can be used to override and check for each state separate, which then can be run by the manager script to run over all methods.
     public virtual bool CheckParameters()
     {
-        if (!stateFinished)
+        if (!StateFinished)
             return true;
         else
         {
             UnityEngine.Debug.LogWarning("Parameter 'stateFinished' is set on 'true' before entering stage.");
             return false;
         }
+    }
+
+    public void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
+    {
+        videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
+        videoPlayer.Play();
     }
 }
