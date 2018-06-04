@@ -30,8 +30,9 @@ public class VideoScript : MonoBehaviour {
     {
         states = new AbstractState[amountOfStates];
         states[0] = new StatePlayVideo(0, VideoPlayer, "test1", 2000);
-        states[1] = new StatePlayVideo(1, VideoPlayer, "test2", 2000);
-        states[2] = new StatePlayVideo(2, VideoPlayer, "welding", 2000);
+        states[1] = new MirrorState(1, VideoPlayer, "test2", 2000);
+        //states[2] = new StatePlayVideo(2, VideoPlayer, "welding", 2000);
+        amountOfStates = states.Length;
     }
     private void checkParametersOfStates()
     {
@@ -59,14 +60,8 @@ public class VideoScript : MonoBehaviour {
         currentState = states[currentStateNumber];
     }
 
-    private void PlayVideoByName(string nameOfVideo)
-    {
-        VideoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
-        VideoPlayer.Play();
-    }
-
     AbstractState[] states;
-    int amountOfStates = 3;
+    int amountOfStates = 2;
     int currentStateNumber;
     AbstractState currentState;
 
