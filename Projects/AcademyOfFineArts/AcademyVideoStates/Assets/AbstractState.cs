@@ -46,6 +46,7 @@ public abstract class AbstractState {
         }
     }
 
+    //This method will be used to play any video by name for all the states, so it does has to be written again for every new state.
     protected void PlayVideoByName(VideoPlayer videoPlayer, string nameOfVideo)
     {
         videoPlayer.url = "Assets/Footage/" + nameOfVideo + ".MP4";
