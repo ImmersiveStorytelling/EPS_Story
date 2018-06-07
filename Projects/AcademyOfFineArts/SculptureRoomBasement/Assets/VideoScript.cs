@@ -61,7 +61,7 @@ public class VideoScript : MonoBehaviour {
 
     ZoomPictureDetector detector = new ZoomPictureDetector();
     Vector3 vAngle = new Vector3();
-    int[] startTime; //time in ms
-    int[] currentTime;
-    int[] durationForShowingPicture = 5000; //2 seconds
+    int startTime; //time in ms
+    int currentTime;
+    int durationForShowingPicture = 5000; //2 seconds
 }
