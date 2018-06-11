@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 
 
-public class VideoScript : MonoBehaviour
+public class MultipleShotsOnAngles: MonoBehaviour
 {
 
     public VideoPlayer VideoPlayer;
@@ -13,20 +13,17 @@ public class VideoScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startTakeNumber(0);
+        startTakeNumber(1);
     }
 
     // Update is called once per frame
     void Update()
     {
         updateVariables();
-        checkAngles();
     }
 
     private void startTakeNumber(int numberOfTake)
     {
-        //if(VideoPlayer.isPlaying) VideoPlayer.Stop();
-
         VideoPlayer.url = "Assets/Footage/" + numberOfTake.ToString() + ".MP4";
         VideoPlayer.Play();
     }
@@ -35,21 +32,17 @@ public class VideoScript : MonoBehaviour
     {
         //vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
         vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
-        Debug.Log(vAngle); 
-    }
+        Debug.Log(vAngle);
 
-    private void checkAngles()
-    {
-        if (Mathf.Abs(vAngle.x - idealRotation.x) < vTriggerAngle.x && Mathf.Abs(vAngle.y - idealRotation.y) < vTriggerAngle.y && !switched)
+        if (Mathf.Abs(vAngle.x - idealRotation.x) < 45 && Mathf.Abs(vAngle.y - idealRotation.y) < 45 && !switched)
         {
-            startTakeNumber(1);
+            startTakeNumber(2);
             switched = true;
         }
     }
 
 
     Vector3 vAngle = new Vector3(); //angles headset
-    Vector3 vTriggerAngle = new Vector3(45, 45, 0);
     Vector3 idealRotation = new Vector3(0f, 180f, 0f);
     bool switched = false;
 
