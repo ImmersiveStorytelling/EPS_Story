@@ -25,14 +25,14 @@ public class ImageLoaderScript : MonoBehaviour
         foreach (FileInfo file in Files)
         {
             string fn = file.Name;
-            string[] t1 = fn.Split('.');
+            string[] t1 = fn.Split(')');
             //Debug.Log(t1[0]);
-            string[] t2 = t1[0].Split('_');
+            string[] t2 = t1[0].Split('(');
 
-            int x = int.Parse(t2[0]);
+            int x = 0;
             int y = int.Parse(t2[1]);
-            //Debug.Log(file.FullName);
-            images[x, y] = LoadPNG(file.FullName);
+            Debug.Log("FullName: " + file.FullName);
+            images[x, y - 1] = LoadPNG(file.FullName);
         }
     }
 
@@ -44,14 +44,14 @@ public class ImageLoaderScript : MonoBehaviour
 
     public void loadImage(Vector2Int xy)
     {
-        string filename = xy.x.ToString() + "_" + xy.y.ToString() + ".png";
+        string filename = "pic (" + (xy.y + 1).ToString() + ").png";
         string filepath = "Assets/Footage/Mirror/" + filename;
-        //Debug.Log(filepath);
+        Debug.Log(filepath);
 
 
-        if (images[xy.x, xy.y] != null)
+        if (images[0, xy.y] != null)
         {
-            overlay.mainTexture = images[xy.x, xy.y];
+            overlay.mainTexture = images[0, xy.y];
         }
         else
         {
