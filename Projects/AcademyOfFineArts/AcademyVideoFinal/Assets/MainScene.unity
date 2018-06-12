@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.07021297, g: 0.07793459, b: 0.0771637, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5837af0260a118e4d808bfe0405429a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistOnLoad: 0
   autoManageScriptDefines: 1
   activeScriptingDefineSymbolsWithoutSDKClasses: []
   scriptAliasLeftController: {fileID: 0}
@@ -149,6 +148,8 @@ MonoBehaviour:
   autoLoadSetup: 1
   setups:
   - {fileID: 1329766937}
+  excludeTargetGroups: 1b0000001a000000
+  persistOnLoad: 0
 --- !u!4 &203671513
 Transform:
   m_ObjectHideFlags: 0
@@ -549,7 +550,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799e0b7850863bd4499050e5465cb08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeginTime_Mirror_TotalMs: 0
+  EndTime_Mirror_TotalMs: 112000
   VideoPlayer: {fileID: 1051313153}
+  Vzp: {x: 0, y: 0, z: 0}
+  Vsp: {x: 0, y: 0}
+  NumberOfFrames: {x: 0, y: 0}
 --- !u!1001 &1723635903
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,7 +623,7 @@ Prefab:
     - target: {fileID: 224903114965417368, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 224587334084441624, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
@@ -627,7 +633,7 @@ Prefab:
     - target: {fileID: 224587334084441624, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 224587334084441624, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
@@ -637,7 +643,7 @@ Prefab:
     - target: {fileID: 224587334084441624, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 224903114965417368, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
@@ -647,7 +653,7 @@ Prefab:
     - target: {fileID: 224903114965417368, guid: be540b97364be0a4890e39e62ac89ed1,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be540b97364be0a4890e39e62ac89ed1, type: 2}
@@ -667,7 +673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799e0b7850863bd4499050e5465cb08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BeginTime_Mirror_TotalMs: 0
+  EndTime_Mirror_TotalMs: 0
   VideoPlayer: {fileID: 1051313153}
+  Vzp: {x: 0, y: 0, z: 0}
+  Vsp: {x: 0, y: 0}
+  NumberOfFrames: {x: 0, y: 0}
 --- !u!1 &2062552030 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1384746914293964, guid: be540b97364be0a4890e39e62ac89ed1,

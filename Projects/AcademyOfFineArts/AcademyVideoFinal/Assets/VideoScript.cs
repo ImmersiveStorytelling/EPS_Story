@@ -18,32 +18,38 @@ public class VideoScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startTakeNumber(1);
+        startTakeNumber(0);
         imageloader = GetComponent<ImageLoaderScript>();
+        setBoundaries_mimicingMirrorRaster();
     }
 
     // Update is called once per frame
     void Update()
     {
         updateVariables();
+        //Debug.Log("time in ms: " + VideoPlayer.time * 1000);
+        Debug.Log("current frame: " + VideoPlayer.frame);
         if (VideoPlayer.time * 1000 >= BeginTime_Mirror_TotalMs && VideoPlayer.time*1000 >= EndTime_Mirror_TotalMs)
         {
-            setHeadFrame();
+            Debug.Log("MIRROR");
+            //setHeadFrame();
         }
     }
 
     private void startTakeNumber(int numberOfTake)
     {
         VideoPlayer.url = "Assets/Footage/" + numberOfTake.ToString() + ".MP4";
+        //TEMPORARY:
+        VideoPlayer.Play();
+        VideoPlayer.Play();
+        VideoPlayer.frame = 2400;
         VideoPlayer.Play();
     }
 
     private void updateVariables()
     {
-        vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
-        //vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
-
-        setBoundaries_mimicingMirrorRaster();
+        //vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
+        vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
     }
     private void setBoundaries_mimicingMirrorRaster()
     {
