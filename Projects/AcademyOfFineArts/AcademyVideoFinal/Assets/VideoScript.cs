@@ -5,9 +5,6 @@ using UnityEngine.Video;
 
 public class VideoScript : MonoBehaviour
 {
-    public int BeginTime_Mirror_TotalMs;
-    public int EndTime_Mirror_TotalMs;
-
     public VideoPlayer VideoPlayer;
     public Vector3 Vzp = new Vector3(); //zero point where raster starts
     public Vector2 Vsp = new Vector2(); //amount of dergees of turning head
@@ -27,9 +24,8 @@ public class VideoScript : MonoBehaviour
     void Update()
     {
         updateVariables();
-        //Debug.Log("time in ms: " + VideoPlayer.time * 1000);
-        Debug.Log("current frame: " + VideoPlayer.frame);
-        if (VideoPlayer.time * 1000 >= BeginTime_Mirror_TotalMs && VideoPlayer.time*1000 >= EndTime_Mirror_TotalMs)
+        //Debug.Log("current frame: " + VideoPlayer.frame);
+        if (VideoPlayer.frame >= beginFrameMirrorScene && VideoPlayer.frame <= endFrameMirrorScene)
         {
             Debug.Log("MIRROR");
             //setHeadFrame();
@@ -129,6 +125,8 @@ public class VideoScript : MonoBehaviour
         }
     }
 
+    int beginFrameMirrorScene = 2939;
+    int endFrameMirrorScene = 3357;
     Vector3 vAngle = new Vector3(); //angles headset
     Vector2 vRefUpper = new Vector2(); //point to reference to upper boundary => Vzp + vSp
     Vector2 vRefLower = new Vector2(); //point to reference to lower boundary => Vzp

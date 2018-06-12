@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07021297, g: 0.07793459, b: 0.0771637, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -550,8 +550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799e0b7850863bd4499050e5465cb08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeginTime_Mirror_TotalMs: 0
-  EndTime_Mirror_TotalMs: 112000
+  BeginFrameMirrorScene: 0
+  EndFrameMirrorScene: 100
   VideoPlayer: {fileID: 1051313153}
   Vzp: {x: 0, y: 0, z: 0}
   Vsp: {x: 0, y: 0}
@@ -673,8 +673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799e0b7850863bd4499050e5465cb08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeginTime_Mirror_TotalMs: 0
-  EndTime_Mirror_TotalMs: 0
+  BeginFrameMirrorScene: 0
+  EndFrameMirrorScene: 0
   VideoPlayer: {fileID: 1051313153}
   Vzp: {x: 0, y: 0, z: 0}
   Vsp: {x: 0, y: 0}
