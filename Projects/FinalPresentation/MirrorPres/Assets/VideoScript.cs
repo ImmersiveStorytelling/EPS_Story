@@ -16,10 +16,9 @@ public class VideoScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startTakeNumber(0);
+        startTakeNumber(1);
         imageloader = GetComponent<ImageLoaderScript>();
         setBoundaries_mimicingMirrorRaster();
-        Overlay.GetComponent<MeshRenderer>().enabled = false;
 
     }
 
@@ -33,15 +32,7 @@ public class VideoScript : MonoBehaviour
         //}
         //Debug.Log("current frame: " + VideoPlayer.frame);
         //setHeadFrame();
-        if (VideoPlayer.frame >= beginFrameMirrorScene && VideoPlayer.frame <= endFrameMirrorScene)
-        {
-            Overlay.GetComponent<MeshRenderer>().enabled = true;
-            setHeadFrame();
-        }
-        else if (Overlay.GetComponent<MeshRenderer>().isVisible)
-        {
-            Overlay.GetComponent<MeshRenderer>().enabled = false;
-        }
+        setHeadFrame();
     }
 
     private void startTakeNumber(int numberOfTake)
@@ -99,16 +90,16 @@ public class VideoScript : MonoBehaviour
                 if (vAngle > vRefUpper)
                 {
                     if ((vAngle - vRefUpper) < ((360 - vAngle) + vRefLower))
-                        return 0; //numberOfFrames - 1;
+                        return 0;//numberOfFrames - 1;
                     else
-                        return numberOfFrames - 1;  //0;
+                        return numberOfFrames - 1; //0;
                 }
                 else
                 {
                     if (((360 - vRefUpper) + vAngle) < (vRefLower - vAngle))
-                        return 0; //numberOfFrames - 1;
+                        return 0;//numberOfFrames - 1;
                     else
-                        return numberOfFrames - 1; //0;
+                        return numberOfFrames - 1;//0;
                 }
             }
         }
