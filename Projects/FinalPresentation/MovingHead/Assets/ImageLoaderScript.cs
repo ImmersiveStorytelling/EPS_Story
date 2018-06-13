@@ -31,8 +31,8 @@ public class ImageLoaderScript : MonoBehaviour
 
             int x = 0;
             int y = int.Parse(t2[1]);
-            Debug.Log("FullName: " + file.FullName);
-            images[x, y - 1] = LoadPNG(file.FullName);
+            Debug.Log("FullName: "+file.FullName);
+            images[x, y-1] = LoadPNG(file.FullName);
         }
     }
 

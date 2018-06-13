@@ -3,45 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class VideoScript : MonoBehaviour
-{
+public class VideoScript : MonoBehaviour {
+
     public VideoPlayer VideoPlayer;
     public Vector3 Vzp = new Vector3(); //zero point where raster starts
     public Vector2 Vsp = new Vector2(); //amount of dergees of turning head
     public Vector2Int NumberOfFrames = new Vector2Int(); //states the number of frames in rows and columns of head frames
-    public GameObject Overlay;
 
     ImageLoaderScript imageloader;
 
     // Use this for initialization
-    void Start()
-    {
-        startTakeNumber(0);
+    void Start () {
+        startTakeNumber(1);
         imageloader = GetComponent<ImageLoaderScript>();
-        setBoundaries_mimicingMirrorRaster();
-        Overlay.GetComponent<MeshRenderer>().enabled = false;
-
-    }
+	}
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         updateVariables();
-        //if (vAngle.y > Vzp.y && vAngle.y < Vzp.y + Vsp.y)
-        //{
-        //    Debug.Log("hit");
-        //}
-        //Debug.Log("current frame: " + VideoPlayer.frame);
-        //setHeadFrame();
-        if (VideoPlayer.frame >= beginFrameMirrorScene && VideoPlayer.frame <= endFrameMirrorScene)
-        {
-            Overlay.GetComponent<MeshRenderer>().enabled = true;
-            setHeadFrame();
-        }
-        else if (Overlay.GetComponent<MeshRenderer>().isVisible)
-        {
-            Overlay.GetComponent<MeshRenderer>().enabled = false;
-        }
+        setHeadFrame();
     }
 
     private void startTakeNumber(int numberOfTake)
@@ -52,9 +32,10 @@ public class VideoScript : MonoBehaviour
 
     private void updateVariables()
     {
-        vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
-        //vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
-        //Debug.Log("headset angle y: " + vAngle.y + " x: " + vAngle.x);
+        //vAngle = GameObject.Find("Camera (eye)").transform.rotation.eulerAngles; //FOR STEAM VR WITH HEADSET
+        vAngle = GameObject.Find("Camera").transform.rotation.eulerAngles; //FOR SIMULATOR USING VRTK
+
+        setBoundaries_mimicingMirrorRaster();
     }
     private void setBoundaries_mimicingMirrorRaster()
     {
@@ -78,7 +59,6 @@ public class VideoScript : MonoBehaviour
         mimicFrame.x = checkRasterForFrame(vRefUpper.x, vRefLower.x, vAngle.x, NumberOfFrames.x, Vsp.x);
         mimicFrame.y = checkRasterForFrame(vRefUpper.y, vRefLower.y, vAngle.y, NumberOfFrames.y, Vsp.y);
 
-        Debug.Log("picture to play: " + mimicFrame.y);
         playMimicFrame(mimicFrame);
     }
     private void playMimicFrame(Vector2Int mimicFrame)
@@ -128,15 +108,13 @@ public class VideoScript : MonoBehaviour
     private int selectFrameFromRaster(float vRefUpper, float vRefLower, float vAngle, int numberOfFrames, float spread)
     {
         if ((vRefUpper > vRefLower) || (vAngle > vRefLower))
-            return numberOfFrames - 1 - (int)((numberOfFrames * (vAngle - vRefLower)) / spread);
+            return numberOfFrames - 1 -(int)((numberOfFrames * (vAngle - vRefLower)) / spread);
         else
         {
-            return numberOfFrames - 1 - (int)((numberOfFrames * (vAngle + (360 - vRefLower))) / spread);
+            return numberOfFrames - 1 -(int)((numberOfFrames * (vAngle + (360 - vRefLower))) / spread);
         }
     }
 
-    int beginFrameMirrorScene = 2939;
-    int endFrameMirrorScene = 3357;
     Vector3 vAngle = new Vector3(); //angles headset
     Vector2 vRefUpper = new Vector2(); //point to reference to upper boundary => Vzp + vSp
     Vector2 vRefLower = new Vector2(); //point to reference to lower boundary => Vzp
