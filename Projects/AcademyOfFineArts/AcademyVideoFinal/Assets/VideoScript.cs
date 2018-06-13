@@ -20,6 +20,7 @@ public class VideoScript : MonoBehaviour
         imageloader = GetComponent<ImageLoaderScript>();
         setBoundaries_mimicingMirrorRaster();
         Overlay.GetComponent<MeshRenderer>().enabled = false;
+
     }
 
     // Update is called once per frame
